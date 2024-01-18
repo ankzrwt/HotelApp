@@ -1,6 +1,6 @@
 ﻿using HotelManagement.Models;
 using Microsoft.AspNetCore.Mvc;
-
+//reservation
 namespace HotelManagement.Controllers
 {
     public class ReservationController : Controller
