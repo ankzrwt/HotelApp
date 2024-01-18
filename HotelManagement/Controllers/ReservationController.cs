@@ -32,7 +32,7 @@ namespace HotelManagement.Controllers
         {
             
             ViewBag.reservation=ireservation.getAll();
-            ireservation.printAll();
+            //ireservation.printAll();
             return View();
         }
 

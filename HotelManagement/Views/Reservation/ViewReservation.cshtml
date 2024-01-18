@@ -57,7 +57,11 @@
     @using (Html.BeginForm("UpdateReservation", "Reservation", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-
+    <div>
+        @Html.LabelFor(model => model.id)
+        @Html.HiddenFor(model => model.id) <!-- Include a hidden field for id -->
+        <label>@Model.id</label>
+    </div>
         <div>
             @Html.LabelFor(model => model.guestName)
             @Html.TextBoxFor(model => model.guestName, new { @class = "form-control", @Value=Model.guestName })

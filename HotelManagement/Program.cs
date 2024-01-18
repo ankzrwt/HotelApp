@@ -1,10 +1,13 @@
 using HotelManagement.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IReservation, ReservationRepository>();
+builder.Services.AddTransient<IReservation, SqlRepository>();
+builder.Services.AddDbContextPool<AppDbContext>(options =>options.UseSqlServer("server=DESKTOP-4J8DVKV;Database=HotelDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"));
 
 var app = builder.Build();
 
