@@ -1,0 +1,120 @@
+﻿@* @model HotelManagement.Models.Reservation
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation Form</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("addReservation", "Reservation", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.LabelFor(model => model.guestName)
+            @Html.TextBoxFor(model => model.guestName, new { @class = "form-control"})
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.checkInDate)
+            @Html.TextBoxFor(model => model.checkInDate, new { @class = "form-control", type = "date" })
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.checkOutDate)
+            @Html.TextBoxFor(model => model.checkOutDate, new { @class = "form-control", type = "date" })
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.email)
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+        </div>
+
+        <button type="submit">Submit</button>
+    }
+
+</body>
+</html>
+ *@
+ @model HotelManagement.Models.Reservation
+    <style>
+        
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+    div {
+        margin: auto;
+        width: 50%;
+       
+        padding: 10px;
+    }
+
+    form {
+        margin: auto;
+        width: 50%;
+      
+        padding: 10px;
+    }
+    </style>
+
+
+<div style =" margin:0 auto;">
+
+    @using (Html.BeginForm("addReservation", "Reservation", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <form >
+            <label for="guestName">Guest Name</label>
+            @Html.TextBoxFor(model => model.guestName, new { @class = "form-control", placeholder = "Enter guest name", required = "required" })
+
+            <label for="checkInDate">Check-in Date</label>
+            @Html.TextBoxFor(model => model.checkInDate, new { @class = "form-control", type = "date", placeholder = "Select check-in date", required = "required" })
+
+            <label for="checkOutDate">Check-out Date</label>
+            @Html.TextBoxFor(model => model.checkOutDate, new { @class = "form-control", type = "date", placeholder = "Select check-out date", required = "required" })
+
+            <label for="email">Email</label>
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Enter email", required = "required" })
+
+            <button type="submit">Submit</button>
+        </form>
+    }
+
+</div>
